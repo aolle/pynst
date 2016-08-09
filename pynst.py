@@ -29,13 +29,13 @@ __author__ = "Angel Olle Blazquez"
 
 def save_image(imgurl, directory):
   url = imgurl.replace('_6','_8')
-  img_name = directory+"/"+url.split("/")[-1]
+  img_name = ''.join([directory, '/', url.split('/')[-1]])
   print "saving %s to %s" % (img_name,directory)
   urllib.urlretrieve(url, img_name)
   if imghdr.what(img_name) is not 'jpeg':
     os.remove(img_name)
     url = url.replace('_8','_7')
-    img_name = directory+"/"+url.split("/")[-1]
+    img_name = ''.join([directory, '/', url.split("/")[-1]])
     urllib.urlretrieve(url, img_name)
   print " ... image saved!"
 
